@@ -80,7 +80,7 @@ public class Lists extends MyBooks {
         Thread.sleep(2000);
     }
 
-    //над дописать перенос книги в список
+    //падает на кнопке done
     @Test
     public void tapAddToListActionButton() throws InterruptedException{
         tapActionButton();
@@ -101,18 +101,32 @@ public class Lists extends MyBooks {
         waitForElementAndClick(By.id("ru.litres.android:id/addShelfbutton"), "Cannot find 'Create' button", 10);
         Thread.sleep(2000);
 
-        waitForElementAndClick(By.id("ru.litres.android:id/putToShelfbutton"), "Cannot find shelf title edit field", 10).sendKeys(newList);
-
+        waitForElementAndClick(By.id("ru.litres.android:id/putToShelfbutton"), "Cannot find done button", 10);
+        Thread.sleep(2000);
 
     }
 
-    //чекнуть как работает
     @Test
     public void tapToArchiveActionButton() throws InterruptedException{
         tapActionButton();
 
+        //tap to action button
         waitForElementAndClick(By.xpath("//android.widget.TextView[@text='To archive']"), "Cannot find toArchive button", 10);
         Thread.sleep(2000);
+
+        //tap cancel button
+        waitForElementAndClick(By.id("ru.litres.android:id/cancelButton"), "Cannot find Remove button", 10);
+        Thread.sleep(2000);
+
+        waitForElementAndClick(By.id("ru.litres.android:id/actionsButton"), "Cannot find action button", 10);
+        Thread.sleep(2000);
+        waitForElementAndClick(By.xpath("//android.widget.TextView[@text='To archive']"), "Cannot find toArchive button", 10);
+        Thread.sleep(2000);
+
+        //tap remove button
+        waitForElementAndClick(By.id("ru.litres.android:id/put_to_archive_btn"), "Cannot find Remove button", 10);
+        Thread.sleep(2000);
+
     }
 
 
